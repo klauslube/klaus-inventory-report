@@ -17,7 +17,7 @@ class SimpleReport:
                 oldest_manufacturing_date = product["data_de_fabricacao"]
 
             if product["data_de_validade"] < neareast_expiration_date:
-                neareast_expiration_date = product["data_de_validade"]    
+                neareast_expiration_date = product["data_de_validade"]
         return (
             f"Data de fabricação mais antiga: {oldest_manufacturing_date}\n"
             f"Data de validade mais próxima: {neareast_expiration_date}\n"

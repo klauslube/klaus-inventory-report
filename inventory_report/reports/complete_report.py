@@ -12,13 +12,13 @@ class CompleteReport(SimpleReport):
         company_with_most_products = Counter(
             [product["nome_da_empresa"] for product in data]
         ).most_common(1)[0][0]
-    
+
         for product in data:
             if product["data_de_fabricacao"] < oldest_manufacturing_date:
                 oldest_manufacturing_date = product["data_de_fabricacao"]
 
             if product["data_de_validade"] < neareast_expiration_date:
-                neareast_expiration_date = product["data_de_validade"]  
+                neareast_expiration_date = product["data_de_validade"]
             if product["nome_da_empresa"] in company_products:
                 company_products[product["nome_da_empresa"]] += 1
             else:
