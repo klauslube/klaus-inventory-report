@@ -3,7 +3,7 @@ from inventory_report.inventory.product import Product
 
 def test_cria_produto():
     product = Product(
-        1, "leite", "gloria", "06-12-2022", "06-01-2023", "0123", "seco" 
+        1, "leite", "gloria", "06-12-2022", "06-01-2023", "0123", "seco"
     )
     assert product.id == 1
     assert product.nome_do_produto == "leite"
