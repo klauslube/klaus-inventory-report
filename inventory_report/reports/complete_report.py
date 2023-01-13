@@ -2,6 +2,7 @@ from inventory_report.reports.simple_report import SimpleReport
 
 
 class CompleteReport:
+    @staticmethod
     def generate(data: list):
         simple_Report = SimpleReport.generate(data)
         company_products = {}
