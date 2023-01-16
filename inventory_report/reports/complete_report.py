@@ -18,6 +18,6 @@ class CompleteReport:
             companies += f"- {company}: {quantity}\n"
 
         return (
-            f"{simple_Report}"
+            f"{simple_Report}\n"
             f"Produtos estocados por empresa:\n {companies}"
         )
