@@ -15,12 +15,12 @@ class Inventory:
         elif "xml" in path:
             return Inventory.open_xml(path, report_type)
         else:
-            raise ValueError("Arquivo inválido")
+            raise ValueError("arquivo não é suportado")
 
     @classmethod
     def open_csv(path, type):
-        with open(path) as file:
-            reader = csv.DictReader(file)
+        with open(path, encoding="utf-8") as file:
+            reader = csv.DictReader(file, delimiter=",", quotechar='"')
             if type == "simples":
                 return SimpleReport.generate(reader)
             elif type == "completo":
@@ -30,7 +30,7 @@ class Inventory:
 
     @classmethod
     def open_json(path, type):
-        with open(path) as file:
+        with open(path, "r") as file:
             reader = json.load(file)
             if type == "simples":
                 return SimpleReport.generate(reader)
@@ -41,7 +41,7 @@ class Inventory:
 
     @classmethod
     def open_xml(path, type):
-        with open(path) as file:
+        with open(path, "r") as file:
             reader = xmltodict.parse(file.read())['dataset']['record']
             if type == "simples":
                 return SimpleReport.generate(reader)
