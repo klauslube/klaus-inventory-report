@@ -22,9 +22,9 @@ class Inventory:
         with open(path, encoding="utf-8") as file:
             reader = csv.DictReader(file, delimiter=",", quotechar='"')
             if type == "simples":
-                return SimpleReport.generate(reader)
+                return SimpleReport.generate(list(reader))
             elif type == "completo":
-                return CompleteReport.generate(reader)
+                return CompleteReport.generate(list(reader))
             else:
                 raise ValueError("arquivo não é suportado")
 
