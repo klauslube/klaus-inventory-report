@@ -20,32 +20,32 @@ class Inventory:
     @classmethod
     def open_csv(path, type):
         with open(path) as file:
-            reader = csv.load(file)
-        if type == "simples":
-            return SimpleReport.generate(reader)
-        elif type == "completo":
-            return CompleteReport.generate(reader)
-        else:
-            raise ValueError("arquivo não é suportado")
+            reader = csv.DictReader(file)
+            if type == "simples":
+                return SimpleReport.generate(reader)
+            elif type == "completo":
+                return CompleteReport.generate(reader)
+            else:
+                raise ValueError("arquivo não é suportado")
 
     @classmethod
     def open_json(path, type):
         with open(path) as file:
             reader = json.load(file)
-        if type == "simples":
-            return SimpleReport.generate(reader)
-        elif type == "completo":
-            return CompleteReport.generate(reader)
-        else:
-            raise ValueError("arquivo não é suportado")
+            if type == "simples":
+                return SimpleReport.generate(reader)
+            elif type == "completo":
+                return CompleteReport.generate(reader)
+            else:
+                raise ValueError("arquivo não é suportado")
 
     @classmethod
     def open_xml(path, type):
         with open(path) as file:
             reader = xmltodict.parse(file.read())['dataset']['record']
-        if type == "simples":
-            return SimpleReport.generate(reader)
-        elif type == "completo":
-            return CompleteReport.generate(reader)
-        else:
-            raise ValueError("arquivo não é suportado")
+            if type == "simples":
+                return SimpleReport.generate(reader)
+            elif type == "completo":
+                return CompleteReport.generate(reader)
+            else:
+                raise ValueError("arquivo não é suportado")
