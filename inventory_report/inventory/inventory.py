@@ -18,7 +18,7 @@ class Inventory:
             raise ValueError("arquivo não é suportado")
 
     @classmethod
-    def open_csv(path, type):
+    def open_csv(cls, path, type):
         with open(path, encoding="utf-8") as file:
             reader = csv.DictReader(file, delimiter=",", quotechar='"')
             if type == "simples":
@@ -29,7 +29,7 @@ class Inventory:
                 raise ValueError("arquivo não é suportado")
 
     @classmethod
-    def open_json(path, type):
+    def open_json(cls, path, type):
         with open(path, "r") as file:
             reader = json.load(file)
             if type == "simples":
@@ -40,7 +40,7 @@ class Inventory:
                 raise ValueError("arquivo não é suportado")
 
     @classmethod
-    def open_xml(path, type):
+    def open_xml(cls, path, type):
         with open(path, "r") as file:
             reader = xmltodict.parse(file.read())['dataset']['record']
             if type == "simples":
